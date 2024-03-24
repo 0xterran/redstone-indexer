@@ -1,0 +1,845 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model admin {
+  key                       Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "admin___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model apples__account_in_league {
+  account                   Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "apples__account_in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model apples__admin {
+  account                   Bytes
+  key_bytes                 Bytes    @id(map: "apples__admin___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model apples__match_in_league {
+  match_entity              Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "apples__match_in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model armor_modifier {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     BigInt
+  key_bytes                 Bytes    @id(map: "armor_modifier___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model bananas__in_league {
+  account                   Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "bananas__in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model capturable {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "capturable___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model charge_cap {
+  match_entity              Bytes
+  entity                    Bytes
+  cap                       BigInt
+  total_charged             BigInt
+  key_bytes                 Bytes    @id(map: "charge_cap___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model charged_by_start {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "charged_by_start___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model chargee {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Bytes
+  key_bytes                 Bytes    @id(map: "chargee___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model charger {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     BigInt
+  key_bytes                 Bytes    @id(map: "charger___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model chargers {
+  match_entity              Bytes
+  chargee                   Bytes
+  chargers                  String
+  key_bytes                 Bytes    @id(map: "chargers___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model cherry__account_in_league {
+  account                   Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "cherry__account_in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model chocolate__account_in_league {
+  account                   Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "chocolate__account_in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model chocolate__admin {
+  account                   Bytes
+  key_bytes                 Bytes    @id(map: "chocolate__admin___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model combat {
+  match_entity              Bytes
+  entity                    Bytes
+  health                    BigInt
+  max_health                BigInt
+  armor                     BigInt
+  strength                  BigInt
+  structure_strength        BigInt
+  counter_strength          BigInt
+  key_bytes                 Bytes    @id(map: "combat___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model combat_result {
+  match_entity              Bytes
+  entity                    Bytes
+  attacker                  Bytes
+  defender                  Bytes
+  attacker_damage_received  BigInt
+  defender_damage_received  BigInt
+  attacker_damage           BigInt
+  defender_damage           BigInt
+  ranged                    Boolean
+  attacker_died             Boolean
+  defender_died             Boolean
+  defender_captured         Boolean
+  key_bytes                 Bytes    @id(map: "combat_result___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model entities_at_positi {
+  match_entity              Bytes
+  x                         BigInt
+  y                         BigInt
+  entities                  String
+  key_bytes                 Bytes    @id(map: "entities_at_positi___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model erc20_puppet__erc20_registry {
+  namespace_id              Bytes
+  erc20_address             Bytes
+  key_bytes                 Bytes    @id(map: "erc20_puppet__erc20_registry___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model erc721_puppet__erc721_registry {
+  namespace_id              Bytes
+  erc20_address             Bytes
+  key_bytes                 Bytes    @id(map: "erc721_puppet__erc721_registry___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model factory {
+  match_entity              Bytes
+  entity                    Bytes
+  prototype_ids             String
+  stamina_costs             BigInt[]
+  key_bytes                 Bytes    @id(map: "factory___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model hero_in_rotation {
+  key                       Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "hero_in_rotation___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model hero_in_season_pass {
+  key                       Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "hero_in_season_pass___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model item_type {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Int
+  key_bytes                 Bytes    @id(map: "item_type___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model keywval__name {
+  value_hash                Bytes
+  keys_with_value           String
+  key_bytes                 Bytes    @id(map: "keywval__name___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model last_action {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "last_action___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model last_match_index {
+  match_index               BigInt
+  key_bytes                 Bytes    @id(map: "last_match_index___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model league__account_in_league {
+  account                   Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "league__account_in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model level_in_season_pas {
+  level_id                  Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "level_in_season_pas___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model level_in_standard_r {
+  level_id                  Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "level_in_standard_r___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model level_position {
+  level_id                  Bytes
+  index                     Decimal  @db.Decimal
+  x                         BigInt
+  y                         BigInt
+  key_bytes                 Bytes    @id(map: "level_position___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model level_position_ind {
+  level_id                  Bytes
+  x                         BigInt
+  y                         BigInt
+  value                     Decimal[] @db.Decimal
+  key_bytes                 Bytes     @id(map: "level_position_ind___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal?  @map("__last_updated_block_number") @db.Decimal
+}
+
+model level_templates {
+  key                       Bytes
+  value                     String
+  key_bytes                 Bytes    @id(map: "level_templates___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model level_templates_in {
+  level_id                  Bytes
+  template_id               Bytes
+  value                     Decimal[] @db.Decimal
+  key_bytes                 Bytes     @id(map: "level_templates_in___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal?  @map("__last_updated_block_number") @db.Decimal
+}
+
+model map_center {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "map_center___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match {
+  match_entity_key          Bytes
+  entity                    Bytes
+  match_entity              Bytes
+  key_bytes                 Bytes    @id(map: "match___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_access_contr {
+  key                       Bytes
+  system_id                 Bytes
+  key_bytes                 Bytes    @id(map: "match_access_contr___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_allowed {
+  match_entity              Bytes
+  account                   Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "match_allowed___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_config {
+  key                       Bytes
+  registration_time         Decimal  @db.Decimal
+  start_time                Decimal  @db.Decimal
+  turn_length               Decimal  @db.Decimal
+  level_id                  Bytes
+  created_by                Bytes
+  escrow_contract           Bytes
+  key_bytes                 Bytes    @id(map: "match_config___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_entity_count {
+  match_entity              Bytes
+  entity_counter            BigInt
+  key_bytes                 Bytes    @id(map: "match_entity_count___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_finished {
+  key                       Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "match_finished___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_index {
+  match_entity              Bytes
+  match_index               BigInt
+  key_bytes                 Bytes    @id(map: "match_index___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_index_to_enti {
+  match_index               BigInt
+  match_entity              Bytes
+  key_bytes                 Bytes    @id(map: "match_index_to_enti___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_map_copy_prog {
+  key                       Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "match_map_copy_prog___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_player {
+  match_entity              Bytes
+  player_address            Bytes
+  player_entity             Bytes
+  key_bytes                 Bytes    @id(map: "match_player___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_players {
+  key                       Bytes
+  value                     String
+  key_bytes                 Bytes    @id(map: "match_players___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_ranking {
+  key                       Bytes
+  value                     String
+  key_bytes                 Bytes    @id(map: "match_ranking___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_ready {
+  key                       Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "match_ready___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_reward {
+  entity                    Bytes
+  rank                      Decimal  @db.Decimal
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "match_reward___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_reward_perce {
+  num_players               Decimal   @db.Decimal
+  percentages               Decimal[] @db.Decimal
+  key_bytes                 Bytes     @id(map: "match_reward_perce___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal?  @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_sky {
+  key                       Bytes
+  created_at                Decimal  @db.Decimal
+  reward                    Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "match_sky___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_spawn_points {
+  key                       Bytes
+  value                     String
+  key_bytes                 Bytes    @id(map: "match_spawn_points___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model match_sweepstake {
+  key                       Bytes
+  entrance_fee              Decimal   @db.Decimal
+  reward_percentages        Decimal[] @db.Decimal
+  key_bytes                 Bytes     @id(map: "match_sweepstake___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal?  @map("__last_updated_block_number") @db.Decimal
+}
+
+model movable {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     BigInt
+  key_bytes                 Bytes    @id(map: "movable___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model move_difficulty {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     BigInt
+  key_bytes                 Bytes    @id(map: "move_difficulty___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model name {
+  key                       Bytes
+  value                     String
+  key_bytes                 Bytes    @id(map: "name___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model oranges__account_in_league {
+  account                   Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "oranges__account_in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model oranges__match_in_league {
+  match_entity              Bytes
+  in_league                 Boolean
+  key_bytes                 Bytes    @id(map: "oranges__match_in_league___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model orb__allowances {
+  account                   Bytes
+  spender                   Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "orb__allowances___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model orb__balances {
+  account                   Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "orb__balances___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model orb__metadata {
+  decimals                  Int
+  name                      String
+  symbol                    String
+  key_bytes                 Bytes    @id(map: "orb__metadata___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model owned_by {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Bytes
+  key_bytes                 Bytes    @id(map: "owned_by___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model player {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     BigInt
+  key_bytes                 Bytes    @id(map: "player___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model player_ready {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "player_ready___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model position {
+  match_entity              Bytes
+  entity                    Bytes
+  x                         BigInt
+  y                         BigInt
+  key_bytes                 Bytes    @id(map: "position___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model puppet__puppet_registry {
+  system_id                 Bytes
+  puppet                    Bytes
+  key_bytes                 Bytes    @id(map: "puppet__puppet_registry___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model range {
+  match_entity              Bytes
+  entity                    Bytes
+  min                       BigInt
+  max                       BigInt
+  key_bytes                 Bytes    @id(map: "range___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass__balances {
+  account                   Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "season_pass__balances___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass__metadata {
+  name                      String
+  symbol                    String
+  base_uri                  String
+  key_bytes                 Bytes    @id(map: "season_pass__metadata___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass__operator_approval {
+  owner                     Bytes
+  operator                  Bytes
+  approved                  Boolean
+  key_bytes                 Bytes    @id(map: "season_pass__operator_approval___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass__owners {
+  token_id                  Decimal  @db.Decimal
+  owner                     Bytes
+  key_bytes                 Bytes    @id(map: "season_pass__owners___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass__token_approval {
+  token_id                  Decimal  @db.Decimal
+  account                   Bytes
+  key_bytes                 Bytes    @id(map: "season_pass__token_approval___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass__token_uri {
+  token_id                  Decimal  @db.Decimal
+  token_uri                 String
+  key_bytes                 Bytes    @id(map: "season_pass__token_uri___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass_index {
+  token_index               Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "season_pass_index___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model season_pass_price {
+  price                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "season_pass_price___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model sky_key__balances {
+  account                   Bytes
+  value                     Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "sky_key__balances___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model sky_key__metadata {
+  name                      String
+  symbol                    String
+  base_uri                  String
+  key_bytes                 Bytes    @id(map: "sky_key__metadata___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model sky_key__operator_approval {
+  owner                     Bytes
+  operator                  Bytes
+  approved                  Boolean
+  key_bytes                 Bytes    @id(map: "sky_key__operator_approval___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model sky_key__owners {
+  token_id                  Decimal  @db.Decimal
+  owner                     Bytes
+  key_bytes                 Bytes    @id(map: "sky_key__owners___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model sky_key__token_approval {
+  token_id                  Decimal  @db.Decimal
+  account                   Bytes
+  key_bytes                 Bytes    @id(map: "sky_key__token_approval___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model sky_key__token_uri {
+  token_id                  Decimal  @db.Decimal
+  token_uri                 String
+  key_bytes                 Bytes    @id(map: "sky_key__token_uri___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model sky_pool_config {
+  cost                      Decimal  @db.Decimal
+  window                    Decimal  @db.Decimal
+  orb_token                 Bytes
+  season_pass_token         Bytes
+  sky_key_token             Bytes
+  key_bytes                 Bytes    @id(map: "sky_pool_config___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model spawn_point {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "spawn_point___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model spawn_reserved_by {
+  match_entity              Bytes
+  index                     Decimal  @db.Decimal
+  value                     Bytes
+  key_bytes                 Bytes    @id(map: "spawn_reserved_by___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model stamina {
+  match_entity              Bytes
+  entity                    Bytes
+  current                   BigInt
+  key_bytes                 Bytes    @id(map: "stamina___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model stamina_on_kill {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     BigInt
+  key_bytes                 Bytes    @id(map: "stamina_on_kill___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model store__resource_ids {
+  resource_id               Bytes
+  exists                    Boolean
+  key_bytes                 Bytes    @id(map: "store__resource_ids___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model store__store_hooks {
+  table_id                  Bytes
+  hooks                     String
+  key_bytes                 Bytes    @id(map: "store__store_hooks___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model store__tables {
+  table_id                  Bytes
+  field_layout              Bytes
+  key_schema                Bytes
+  value_schema              Bytes
+  abi_encoded_key_names     Bytes
+  abi_encoded_field_names   Bytes
+  key_bytes                 Bytes    @id(map: "store__tables___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model structure_type {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Int
+  key_bytes                 Bytes    @id(map: "structure_type___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model template_content {
+  template_id               Bytes
+  table_id                  Bytes
+  encoded_lengths           Bytes
+  static_data               Bytes
+  dynamic_data              Bytes
+  key_bytes                 Bytes    @id(map: "template_content___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model template_tables {
+  key                       Bytes
+  value                     String
+  key_bytes                 Bytes    @id(map: "template_tables___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model terrain_type {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Int
+  key_bytes                 Bytes    @id(map: "terrain_type___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model tier {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     BigInt
+  key_bytes                 Bytes    @id(map: "tier___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model unit_type {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Int
+  key_bytes                 Bytes    @id(map: "unit_type___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model untraversable {
+  match_entity              Bytes
+  entity                    Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "untraversable___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model virtual_level_temp {
+  key                       Bytes
+  value                     Boolean
+  key_bytes                 Bytes    @id(map: "virtual_level_temp___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model wager__name {
+  account                   Bytes
+  name                      String
+  key_bytes                 Bytes    @id(map: "wager__name___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__balances {
+  namespace_id              Bytes
+  balance                   Decimal  @db.Decimal
+  key_bytes                 Bytes    @id(map: "world__balances___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__function_selector {
+  function_selector         Bytes
+  system_id                 Bytes
+  system_function_selector  Bytes
+  key_bytes                 Bytes    @id(map: "world__function_selector___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__installed_modules {
+  module_name               Bytes
+  arguments_hash            Bytes
+  module_address            Bytes
+  key_bytes                 Bytes    @id(map: "world__installed_modules___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__namespace_delegat {
+  namespace_id              Bytes
+  delegation_control_id     Bytes
+  key_bytes                 Bytes    @id(map: "world__namespace_delegat___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__namespace_owner {
+  namespace_id              Bytes
+  owner                     Bytes
+  key_bytes                 Bytes    @id(map: "world__namespace_owner___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__resource_access {
+  resource_id               Bytes
+  caller                    Bytes
+  access                    Boolean
+  key_bytes                 Bytes    @id(map: "world__resource_access___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__system_hooks {
+  system_id                 Bytes
+  value                     String
+  key_bytes                 Bytes    @id(map: "world__system_hooks___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__system_registry {
+  system                    Bytes
+  system_id                 Bytes
+  key_bytes                 Bytes    @id(map: "world__system_registry___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__systems {
+  system_id                 Bytes
+  system                    Bytes
+  public_access             Boolean
+  key_bytes                 Bytes    @id(map: "world__systems___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
+
+model world__user_delegation_co {
+  delegator                 Bytes
+  delegatee                 Bytes
+  delegation_control_id     Bytes
+  key_bytes                 Bytes    @id(map: "world__user_delegation_co___key_bytes_pk") @map("__key_bytes")
+  last_updated_block_number Decimal? @map("__last_updated_block_number") @db.Decimal
+}
