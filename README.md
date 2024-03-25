@@ -58,7 +58,7 @@ Now check for the schema you want:
 ```
 We can pick the first one to use as the schema path.
 ```sql
-# set search_path to "0x6e9474e9c83676b9a71133ff96db43e7aa0a4342";
+# set search_path to "0x7203e7ADfDF38519e1ff4f8Da7DCdC969371f377";
 ```
 
 

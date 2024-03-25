@@ -1,6 +1,14 @@
 import express, { Request, Response } from "express";
 import ViteExpress from "vite-express";
 import { filterMatchesByPlayer, getAllPlayers } from "./database.js";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  server: {
+    host: "0.0.0.0",
+  },
+  // other configurations...
+});
 
 const app = express();
 app.use(express.json());
