@@ -1,5 +1,8 @@
 # Redstone Indexer Demo
 
+<img width="1440" alt="image" src="https://github.com/0xterran/redstone-indexer/assets/96885027/50d78f76-c6a8-4d5b-b296-adf40fb0806e">
+
+
 How to run:
 ```sh
 # Terminal 1
