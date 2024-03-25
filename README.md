@@ -1,5 +1,7 @@
 # Redstone Indexer Demo
 
+[Explainer Video](https://drive.google.com/file/d/1QJ-8n4uGoYWsMy-9x848vPVclLrnwmMl/view?usp=sharing)
+
 <img width="1440" alt="image" src="https://github.com/0xterran/redstone-indexer/assets/96885027/50d78f76-c6a8-4d5b-b296-adf40fb0806e">
 
 
@@ -34,10 +36,12 @@ You need to create root user for indexer to control:
 
 Start indexer
 ```sh
+# Explicitly install npm package
+$ npm install @latticexyz/store-indexer@next
 # Set the environment variables.
 $ export RPC_HTTP_URL=https://rpc.holesky.redstone.xyz
 # Run the indexer. Install it first if necessary.
-$ export DATABASE_URL=postgres://your_username:your_password@localhost:5432/your_database_name
+$ export DATABASE_URL=postgres://root:your_password@localhost:5432/your_database_name
 $ npx -y -p @latticexyz/store-indexer@next postgres-decoded-indexer
 ```
 
@@ -90,4 +94,10 @@ List of relations
  0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | apples__admin                  | table | your_username
  0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | apples__match_in_league        | table | your_username
  0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | armor_modifier                 | table | your_username
+```
+
+Finally run the web server:
+
+```sh
+$ yarn dev
 ```

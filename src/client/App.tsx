@@ -130,7 +130,7 @@ function App() {
           <h1 className="p-5 text-xl text-center font-bold mb-6">
             {selectedPlayer ? `Player 0x${selectedPlayer}` : "Select Player"}
           </h1>
-
+          {matchesError && <b className="text-red-500">{matchesError}</b>}
           {selectedPlayer && (
             <>
               {isMatchesLoading ? (
