@@ -17,14 +17,6 @@ Start the postgres database:
 $ docker compose up
 ```
 
-Start indexer
-```sh
-# Set the environment variables.
-$ export RPC_HTTP_URL=https://rpc.holesky.redstone.xyz
-# Run the indexer. Install it first if necessary.
-$ export DATABASE_URL=postgres://your_username:your_password@localhost:5432/your_database_name
-$ npx -y -p @latticexyz/store-indexer@next postgres-decoded-indexer
-```
 
 Now enter Postgres and poke around the db shell:
 ```sh
@@ -37,6 +29,14 @@ You need to create root user for indexer to control:
 # ALTER USER root WITH PASSWORD 'your_password';
 ```
 
+Start indexer
+```sh
+# Set the environment variables.
+$ export RPC_HTTP_URL=https://rpc.holesky.redstone.xyz
+# Run the indexer. Install it first if necessary.
+$ export DATABASE_URL=postgres://your_username:your_password@localhost:5432/your_database_name
+$ npx -y -p @latticexyz/store-indexer@next postgres-decoded-indexer
+```
 
 Now check for the schema you want:
 
@@ -51,7 +51,7 @@ Now check for the schema you want:
 ```
 We can pick the first one to use as the schema path.
 ```sql
-# set search_path to "0x7203e7adfdf38519e1ff4f8da7dcdc969371f377";
+# set search_path to "0x6e9474e9c83676b9a71133ff96db43e7aa0a4342";
 ```
 
 
@@ -71,10 +71,20 @@ docker run \
 
 Back inside postgres, check if you can see the database tables. There should be 100+
 
-```sh
-$ psql -h localhost -U your_username -d your_database_name -W
-```
 ```sql
 # set search_path to "0x6e9474e9c83676b9a71133ff96db43e7aa0a4342";
 # \dt
+```
+
+Which should look like this
+```sql
+your_database_name=# \dt
+List of relations
+                   Schema                   |              Name              | Type  |     Owner
+--------------------------------------------+--------------------------------+-------+---------------
+ 0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | admin                          | table | your_username
+ 0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | apples__account_in_league      | table | your_username
+ 0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | apples__admin                  | table | your_username
+ 0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | apples__match_in_league        | table | your_username
+ 0x6e9474e9c83676b9a71133ff96db43e7aa0a4342 | armor_modifier                 | table | your_username
 ```
